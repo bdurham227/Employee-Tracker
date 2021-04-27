@@ -9,13 +9,16 @@ CREATE TABLE departments (
     name VARCHAR(30)
 );
 
+
+
 CREATE TABLE roles (
-    id INT NOT NULL AUTO_INCREMENT  PRIMARY KEY,
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(30),
     salary DECIMAL(10),
     department_id INT NOT NULL,
     FOREIGN KEY (department_id) REFERENCES departments(id)
 );
+
 
 CREATE TABLE employees (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
