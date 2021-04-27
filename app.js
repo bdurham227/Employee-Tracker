@@ -132,6 +132,24 @@ const editDepartment = async () => {
   console.log("-----------------");
   //
   await connection.query("");
+
+  inquirer.prompt([
+    {
+      type: 'list',
+      name: 'departments',
+      message: 'What would you like to do?',
+      choices: ['Remove Department', 'Update Department']
+  }
+]).then((answer) => {
+    switch(answer.departments) {
+      case 'Remove Department':
+        removeDepartment();
+        break;
+      case 'Update Department':
+        UpdateDepartment();
+        break;
+    }
+})
     //need to build out SQL query
     //query is going to based off inquirer.prompt answer
     //if adding a new department build out sql query for adding
@@ -156,6 +174,28 @@ const editDepartment = async () => {
 const editEmployee = async () => {
   console.log("------------------");
   await connection.query("");
+
+    inquirer.prompt([
+      {
+        type: 'list',
+        name: 'employee',
+        message: 'What would you like to do?',
+        choices: ['Add an Employee', 'Update Employee', 'Remove Employee']
+      }
+    ]).then((answers) => {
+      switch(answers.employee) {
+          case 'Add an Employee':
+            addEmployee();
+            break;
+          case 'Update Employee':
+            updateEmployee();
+            break;
+          case 'Remove Employee':
+            removeEmployee();
+            break;
+            
+      }
+    })
     //need to build out SQL query
     //query is going to based off inquirer.prompt answer
     //if adding a new employee build out sql query for adding
@@ -173,6 +213,24 @@ const editEmployee = async () => {
 const editRole = async () => {
   console.log("------------------------");
   await connection.query("");
+
+  inquirer.prompt([
+    {
+      type: 'list',
+      name: 'roles',
+      message: 'What would you like to do?',
+      choices: ['Update Role', 'Remove Role'],
+    }
+  ]).then((answers) => {
+    switch(answers.roles) {
+        case 'Update Role':
+          updateRole();
+          break;
+        case 'Remove Role':
+          removeRole();
+          break;
+    }
+  })
     //need to build out SQL query
     //query is going to based off inquirer.prompt answer
     //if adding a new role build out sql query for adding
